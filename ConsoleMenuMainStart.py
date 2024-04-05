@@ -1,7 +1,7 @@
 import sys
 from types import MethodType
 
-import ConsoleSolution as Console
+import ConsoleStart as Console
 
 
 class MainMenu(Console.Menu):
@@ -9,13 +9,7 @@ class MainMenu(Console.Menu):
         super().__init__("Main Menu")
 
     def _navigate(self, choice):
-        match choice:
-            case '1':
-                self.app.current_menu = "hotel_menu"
-            case '2':
-                self.app.current_menu = "reservation_menu"
-            case '3':
-                sys.exit(0)
+        pass
 
 
 class HotelMenu(Console.Menu):
@@ -24,24 +18,10 @@ class HotelMenu(Console.Menu):
 
 
 def hotel_nav(self, choice):
-    match choice:
-        case '1':
-            Console.clear_console()
-            print("User selected 1 to add a new hotel")
-            input()
-            self.app.current_menu = "hotel_menu"
-        case '2':
-            self.app.current_menu = "main_menu"
+    pass
 
 def reservation_nav(self, choice):
-    match choice:
-        case '1':
-            Console.clear_console()
-            print("User selected 1 to view reservations")
-            input()
-            self.app.current_menu = "reservation_menu"
-        case '2':
-            self.app.current_menu = "main_menu"
+    pass
 
 
 if __name__ == "__main__":

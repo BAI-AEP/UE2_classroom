@@ -10,7 +10,7 @@ class Menu(object):
         self._app = None
         self._title = title
         self._width = width
-        self._choices = []
+        self._items = []
 
     @property
     def app(self):
@@ -28,8 +28,8 @@ class Menu(object):
     def title(self, title):
         self._title = title
 
-    def add_choice(self, choice):
-        self._choices.append(choice)
+    def add_item(self, item):
+        self._items.append(item)
 
     def display(self):
         print("#" * self._width)
@@ -37,14 +37,14 @@ class Menu(object):
         print("#", self._title, " " * spaces_needed, "#")
         print("#" * self._width)
 
-        for i, choice in enumerate(self._choices):
+        for i, item in enumerate(self._items):
             num_as_str = str(i + 1) + "."
-            spaces_needed = self._width - len(num_as_str) - len(choice) - 2 - 4
-            print("#", f"{num_as_str}", choice.title, " " * spaces_needed, "#")
+            spaces_needed = self._width - len(num_as_str) - len(item) - 2 - 4
+            print("#", f"{num_as_str}", item.title, " " * spaces_needed, "#")
         print("#" * self._width)
 
     def run(self):
-        possible_choices = [str(i + 1) for i in range(len(self._choices))]
+        possible_choices = [str(i + 1) for i in range(len(self._items))]
         user_choice = None
         while user_choice not in possible_choices:
             clear_console()
