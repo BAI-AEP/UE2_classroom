@@ -9,20 +9,22 @@ class Menu(object):
     def __init__(self, title, width=40):
         pass
 
-    @property
-    def app(self):
+    def get_app(self):
         pass
 
-    @app.setter
-    def app(self, app):
+    def set_app(self, app):
         pass
 
-    @property
-    def title(self):
+    def get_title(self):
         pass
 
-    @title.setter
-    def title(self, title):
+    def set_title(self, title):
+        pass
+
+    def get_with(self):
+        pass
+
+    def set_width(self, width):
         pass
 
     def add_item(self, item):
@@ -32,22 +34,23 @@ class Menu(object):
         pass
 
     def run(self):
-        pass
+       pass
 
     def _navigate(self, choice):
-        pass
+        raise NotImplementedError()
 
 
 class MenuItem(object):
     def __init__(self, title):
         pass
 
-    @property
-    def title(self):
+    def get_title(self):
         pass
 
-    @title.setter
-    def title(self, title):
+    def set_title(self, title):
+        pass
+
+    def __len__(self):
         pass
 
 
@@ -55,16 +58,16 @@ class Application(object):
     def __init__(self, start_menu):
         pass
 
-    @property
-    def current_menu(self):
+    def get_current_menu(self):
         pass
 
-    @current_menu.setter
-    def current_menu(self, menu_name):
+    def set_current_menu(self, menu_name):
         pass
 
     def add_menu(self, menu_name, menu):
         pass
 
     def run(self):
-        pass
+        clear_console()
+        while True:
+            pass

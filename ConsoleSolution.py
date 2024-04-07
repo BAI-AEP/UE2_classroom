@@ -12,21 +12,23 @@ class Menu(object):
         self._width = width
         self._items = []
 
-    @property
-    def app(self):
+    def get_app(self):
         return self._app
 
-    @app.setter
-    def app(self, app):
+    def set_app(self, app):
         self._app = app
 
-    @property
-    def title(self):
+    def get_title(self):
         return self._title
 
-    @title.setter
-    def title(self, title):
+    def set_title(self, title):
         self._title = title
+
+    def get_with(self):
+        return self._width
+
+    def set_width(self, width):
+        self._width = width
 
     def add_item(self, item):
         self._items.append(item)
@@ -40,7 +42,7 @@ class Menu(object):
         for i, item in enumerate(self._items):
             num_as_str = str(i + 1) + "."
             spaces_needed = self._width - len(num_as_str) - len(item) - 2 - 4
-            print("#", f"{num_as_str}", item.title, " " * spaces_needed, "#")
+            print("#", f"{num_as_str}", item.get_title(), " " * spaces_needed, "#")
         print("#" * self._width)
 
     def run(self):
@@ -60,14 +62,12 @@ class Menu(object):
 
 class MenuItem(object):
     def __init__(self, title):
-        self._title = title
+        self.set_title(title)
 
-    @property
-    def title(self):
+    def get_title(self):
         return self._title
 
-    @title.setter
-    def title(self, title):
+    def set_title(self, title):
         self._title = title
 
     def __len__(self):
@@ -79,17 +79,15 @@ class Application(object):
         self._current_menu = start_menu
         self._menus = {}
 
-    @property
-    def current_menu(self):
+    def get_current_menu(self):
         return self._current_menu
 
-    @current_menu.setter
-    def current_menu(self, menu_name):
+    def set_current_menu(self, menu_name):
         self._current_menu = self._menus[menu_name]
 
     def add_menu(self, menu_name, menu):
         self._menus[menu_name] = menu
-        menu.app = self
+        menu.set_app(self)
 
     def run(self):
         clear_console()
