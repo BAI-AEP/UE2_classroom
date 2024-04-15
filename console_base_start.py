@@ -55,14 +55,14 @@ class Menu(Console):
     def remove_option(self, option: MenuOption):
         pass
 
-    def show(self):
+    def _show(self):
         pass
 
-    def run(self) -> Console:
-        pass
-
-    def make_choice(self) -> int:
+    def _make_choice(self) -> int:
         pass
 
     def _navigate(self, choice: int):
         raise NotImplementedError("Implement this method")
+
+    def run(self) -> Console:
+        pass
