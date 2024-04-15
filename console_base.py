@@ -56,7 +56,7 @@ class Menu(Console):
     def remove_option(self, option: MenuOption):
         self._options.remove(option)
 
-    def show(self):
+    def _show(self):
         print("#" * self._width)
         left = "# "
         right = "#"
@@ -69,19 +69,19 @@ class Menu(Console):
             print(f"{left}{index}{option}{space}{right}")
         print("#" * self._width)
 
-    def run(self) -> Console:
-        self.clear()
-        self.show()
-        return self._navigate(self.make_choice())
-
-    def make_choice(self) -> int:
+    def _make_choice(self) -> int:
         choice = input("Enter Option: ")
         options = [f"{i}" for i, option in enumerate(self._options, 1)]
         while choice not in options:
-            self.show()
+            self._show()
             print("Invalid Option")
             choice = input("Enter Option: ")
         return int(choice)
 
     def _navigate(self, choice: int):
         raise NotImplementedError("Implement this method")
+
+    def run(self) -> Console:
+        self.clear()
+        self._show()
+        return self._navigate(self._make_choice())
